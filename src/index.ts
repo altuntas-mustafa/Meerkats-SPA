@@ -1,3 +1,5 @@
+import './styles/main.scss'
+
 const mainImage = require('./images/download.jpeg')
 // import mainImage from 
 // Create heading node
