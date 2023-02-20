@@ -1,17 +1,22 @@
 import './styles/main.scss'
+// import 'whatwg-fetch';
 
+// import { createApi } from 'unsplash-js';
+// import nodeFetch from 'node-fetch';
+// const nodeFetch = require('node-fetch')
+
+// const unsplash = createApi({
+//   accessKey: 'MY_ACCESS_KEY',
+//   fetch: nodeFetch,
+// });
+
+// ------ Webpack add image with asset/resource -----
 const mainImage = require('./images/download.jpeg')
-// import mainImage from 
-// Create heading node
-const heading = document.createElement('h1')
-
-let container = document.querySelector('#root')!
+const logoContainer = document.querySelector('.logo')!
 const image = document.createElement('img')
-container.appendChild(image)
+logoContainer.appendChild(image)
 image.src = mainImage;
+// ---------end -----
 
-heading.textContent = 'Interesting!'
-// Append heading node to the DOM
-const app = document.querySelector('#root')!
-app.append(heading)
-app.append(image)
+const input = document.querySelector('.input-field');
+
