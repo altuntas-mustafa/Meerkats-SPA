@@ -36,7 +36,7 @@ previousPage.addEventListener('click',() => {
 nextPage.addEventListener('click',() => {
   window.history.forward()
  })
-
+console.log("object");
     const mainImage = require('./images/download.jpeg')
 const logoContainer = document.querySelector('.logo')!
 const image = document.createElement('img')
