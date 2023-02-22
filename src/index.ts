@@ -7,14 +7,19 @@ const previousPage = document.querySelector('.button-previous')!;
 const nextPage = document.querySelector('.button-next')!;
 const searchQueries = document.querySelector('#search__queries')!;
 let value = ''
+
 getQuery.addEventListener('click',() => {
   value = inputField.value;
   localStorage.setItem(value,value);
   const searchData = window.localStorage;
-  const optionElement: HTMLElement = document.createElement('option');
-  optionElement.innerHTML = value;
-  searchQueries.appendChild(optionElement)
-  // searchQueries.innerHTML += optionElement;
+  console.log('searchData', searchData);
+  Object.keys(searchData).forEach(key => {
+    console.log('hey', key);
+    const arg = window.localStorage.getItem(key)!
+    const optionElement: HTMLElement = document.createElement('option');
+    optionElement.innerHTML = arg;
+    searchQueries.appendChild(optionElement)
+  })
   getUnsplashPhotos(value); 
 })
 
