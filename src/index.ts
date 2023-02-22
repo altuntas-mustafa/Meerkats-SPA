@@ -1,16 +1,30 @@
 import './styles/main.scss'
 import { createApi } from 'unsplash-js';
-import { search } from 'unsplash-js/dist/internals';
 
-// const accessKey = 'W3ZYLO4p0TjuNtGtCxuUxd-VQjISiTJdPPGkQFDXz3c'
 const inputField = document.querySelector('.field') as HTMLInputElement;
 const getQuery = document.querySelector('.button-search')!;
+const previousPage = document.querySelector('.button-previous')!;
+const nextPage = document.querySelector('.button-next')!;
+const searchQueries = document.querySelector('#search__queries')!;
 let value = ''
 getQuery.addEventListener('click',() => {
   value = inputField.value;
-  getUnsplashPhotos(value) 
-  console.log(value);
+  localStorage.setItem(value,value);
+  const searchData = window.localStorage;
+  const optionElement: HTMLElement = document.createElement('option');
+  optionElement.innerHTML = value;
+  searchQueries.appendChild(optionElement)
+  // searchQueries.innerHTML += optionElement;
+  getUnsplashPhotos(value); 
 })
+
+previousPage.addEventListener('click',() => {
+ window.history.back()
+})
+
+nextPage.addEventListener('click',() => {
+  window.history.forward()
+ })
 
 const mainImage = require('./images/download.jpeg')
 const logoContainer = document.querySelector('.logo')!
@@ -21,13 +35,12 @@ image.src = mainImage;
 
 const unsplash = createApi({
   accessKey: 'W3ZYLO4p0TjuNtGtCxuUxd-VQjISiTJdPPGkQFDXz3c',
-  // headers: { 'X-Custom-Header': 'foo' },
 });
 function getUnsplashPhotos(value : string) {
   unsplash.search.getPhotos({
     query: `${value}`,
     page: 1,
-    perPage: 6
+    perPage: 2
   })
   .then(data => {
     console.log(data);
