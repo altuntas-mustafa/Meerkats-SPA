@@ -64,6 +64,7 @@ function getUnsplashPhotos(value : string) {
       imageContainer.appendChild(imgElement);
     })
   })
+  .catch((error) => console.error(error));
 }
 // fetch(`${apiUrl}?page=1&query=car&client_id=W3ZYLO4p0TjuNtGtCxuUxd-VQjISiTJdPPGkQFDXz3c`, { headers })
 //   .then((response) => response.json())
