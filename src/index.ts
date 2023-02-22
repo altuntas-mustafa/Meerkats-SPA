@@ -37,18 +37,19 @@ nextPage.addEventListener('click',() => {
   window.history.forward()
  })
 
-const mainImage = require('./images/download.jpeg')
+    const mainImage = require('./images/download.jpeg')
 const logoContainer = document.querySelector('.logo')!
 const image = document.createElement('img')
-logoContainer.appendChild(image)
+  logoContainer.appendChild(image)
 image.src = mainImage;
 // ---------end -----
+
 
 const unsplash = createApi({
   accessKey: 'W3ZYLO4p0TjuNtGtCxuUxd-VQjISiTJdPPGkQFDXz3c',
 });
 function getUnsplashPhotos(value : string) {
-  unsplash.search.getPhotos({
+    unsplash.search.getPhotos({
     query: `${value}`,
     page: 1,
     perPage: 2

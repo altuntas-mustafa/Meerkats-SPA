@@ -6,4 +6,3 @@
 webpack.config.js
 /server/config
 **/*.spec.js
-/dist
