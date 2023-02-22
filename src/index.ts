@@ -8,7 +8,6 @@ const nextPage = document.querySelector('.button-next')!;
 const searchQueries = document.querySelector('#search__queries')!;
 window.addEventListener("load", saveSearch)
 let value = ''
-console.log("object");
 
 function saveSearch () {
 const searchData = window.localStorage;
