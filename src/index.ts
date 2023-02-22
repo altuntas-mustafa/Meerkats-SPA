@@ -6,20 +6,26 @@ const getQuery = document.querySelector('.button-search')!;
 const previousPage = document.querySelector('.button-previous')!;
 const nextPage = document.querySelector('.button-next')!;
 const searchQueries = document.querySelector('#search__queries')!;
+window.addEventListener("load", saveSearch)
 let value = ''
+
+
+function saveSearch () {
+const searchData = window.localStorage;
+console.log('searchData', searchData);
+Object.keys(searchData).forEach(key => {
+  console.log('hey', key);
+  const arg = window.localStorage.getItem(key)!
+  const optionElement: HTMLElement = document.createElement('option');
+  optionElement.innerHTML = arg;
+  searchQueries.appendChild(optionElement)
+})
+}
 
 getQuery.addEventListener('click',() => {
   value = inputField.value;
   localStorage.setItem(value,value);
-  const searchData = window.localStorage;
-  console.log('searchData', searchData);
-  Object.keys(searchData).forEach(key => {
-    console.log('hey', key);
-    const arg = window.localStorage.getItem(key)!
-    const optionElement: HTMLElement = document.createElement('option');
-    optionElement.innerHTML = arg;
-    searchQueries.appendChild(optionElement)
-  })
+  saveSearch()
   getUnsplashPhotos(value); 
 })
 
